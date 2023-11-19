@@ -23,8 +23,7 @@ class WeatherReporterTest {
 
         // assert
         assertEquals("Текущая температура: 20 градусов.", weatherReporter.generateReport());
-        verify(weatherService).getCurrentTemperature();
-
+        verify(weatherService, times(1)).getCurrentTemperature();
     }
 
 }
