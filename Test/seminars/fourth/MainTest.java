@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 
@@ -20,6 +21,7 @@ class MainTest {
 
         // Используем мок
         mockedList.add("one");
+//        System.out.println(mockedList.get(0));
         mockedList.clear();
 
         // Проверяем, что методы были вызваны
@@ -36,9 +38,14 @@ class MainTest {
       public void iteratorWillReturnHelloWorld() {
           // Arrange
           Iterator iteratorMock = mock(Iterator.class);
-          //when(iteratorMock.next()).thenReturn("Hello")...;
+          when(iteratorMock.next()).thenReturn("Hello ", "World");
+
           // Act
-          // ...
+          String res = iteratorMock.next().toString() + iteratorMock.next().toString();
+
+          // Assert
+          assertEquals("Hello World", res);
+
       }
 
 }
